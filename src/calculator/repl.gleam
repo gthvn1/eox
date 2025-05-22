@@ -8,7 +8,7 @@ pub fn start() -> Nil {
   case erlang.get_line(">> ") {
     Ok(s) -> {
       // We can remove the endline and extra spaces if any at the end
-      lexer.from_string(string.trim_end(s))
+      lexer.from_string(string.trim_end(s)) |> echo
       start()
     }
     Error(erlang.Eof) -> io.println("Bye!!!")
